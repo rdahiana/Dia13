@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="Container mx-5 mt-3">
+        <div class="row">
+            <div class="col-md-12 titulos">Cuenta Crédito</div>
+            <select class="form-select" id="selectCuentaCredito" aria-label="Default select example">
+                <option selected> </option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 titulos">
+                <br>
+                Numero de Cuenta
+                <br>
+                <input type="text" id="inumeroCuenta" class="bottom-border" >
+            </div>
+
+            <div class="col-md-2 titulos text-center">
+                <br>
+                Guardar
+                <br>
+                <label class="checkbox-container">
+                    <input class="form-check-input mt-0" id="iGuardar" type="checkbox" value="" aria-label="Checkbox for following text input">
+                </label>
+            </div>
+            <div class="col-md-6 titulos">
+                <br>
+                Alias
+                <br>
+                <input type="text" class="bottom-border" id="iAlias" style="width: 100%;">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 titulos">
+                <br>
+                Banco
+                <br>
+                <select class="form-select" id="selectBanco" aria-label="Default select example">
+                    <option selected>Seleccionar</option>
+                    <option value="1">Banco 1</option>
+                    <option value="2">Banco 2</option>
+                    <option value="3">Banco 3</option>
+                </select>
+            </div>
+        
+            <div class="col-md-6 titulos">
+                <br>
+                Denominación
+                <br>
+                <input type="text" id="iDenominacion" class="bottom-border" style="width: 100%;">
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col-md-6 titulos">
+                <br>
+                Tipo de Documento
+                <br>
+                <select class="form-select" id="selectTipoDocumento" aria-label="Default select example">
+                    <option selected>Seleccionar</option>
+                    <option value="1">Registro Único del Contribuyente</option>
+                    <option value="2">Cédula de Identidad</option>
+                    <option value="3">Personas No Residentes</option>
+                    <option value="4">Personas Residentes</option>
+                </select>
+            </div>
+        
+            <div class="col-md-6 titulos">
+                <br>
+                Numero de Documento
+                <br>
+                <input type="text" id="inputNumeroDocumento" class="bottom-border" style="width: 100%;" placeholder = "999999-9">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 titulos">
+                <br>
+                Domicilio
+                <br>
+                <input type="text" id="iDomicilio" class="bottom-border" style="width: 100%;">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 titulos">
+                <br>
+                Numero de Cuenta
+                <br>
+                <input type="text" id="iNroCuenta" class="bottom-border" style="width: 100%;">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <br>
+            <button type="button" id="botonContinuar" class="btn btn-primary" onclick="validarYContinuar()">Continuar</button>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" id="modalExito">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Los datos han sido guardados correctamente</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Gracias por utilizar nuestros servicios</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" id="modalFail">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">ERROR</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Los datos ingresados no son válidos</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+
+    function validarYContinuar() {
+        console.log("Función validarYContinuar() llamada");
+        var tipoDocumento = document.getElementById("selectTipoDocumento").value;
+        var numeroDocumento = document.getElementById("inputNumeroDocumento").value;
+
+        if (tipoDocumento === "1") { // Verificar si se seleccionó "Registro Único del Contribuyente (RUC)"
+            var regex = /^\d{6}-\d{1}$/; // Expresión regular para el formato del RUC
+            if (!regex.test(numeroDocumento)) { // Si el número de documento no cumple con el formato del RUC
+                var modalFail = new bootstrap.Modal(document.getElementById('modalFail'));
+                modalFail.show(); // Mostrar modalFail
+            } else {
+                // Mostrar modal de éxito
+                var modalExito = new bootstrap.Modal(document.getElementById('modalExito'));
+                modalExito.show();
+            }
+        } else {
+            var modalFail = new bootstrap.Modal(document.getElementById('modalFail'));
+            modalFail.show(); // Mostrar modalFail
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+
+.table-dark {
+    background-color: #343a40;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.table {
+    width: 1000px;
+    margin: auto;
+    height: 150px;
+    border: solid white;
+    font-family: Arial, sans-serif;
+}
+
+.table th,
+.table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table td {
+    border: 1px solid #434b53;
+}
+#archivos-container,
+#detalles-container {
+    background-color: rgba(219, 200, 237, 0.613);
+    width: 82%; /* Ajuste el ancho al 100% */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border: solid white;
+    color: #343a40;
+    font-family: Arial, sans-serif;
+    margin-top: 20px; /* Agregue un espacio entre los contenedores y la tabla */
+}
+
+#detalles-parrafo {
+    font-style: italic;
+}
+
+#botones {
+    background-color: white ; /* Color de fondo rojo */
+    color:  #343a40 ; /* Color del texto blanco */
+    border: none;
+    font-weight: 700;
+}
+
+
+#acordeon-container{
+    border: none;
+}
+.accordion-header button {
+    color: white; /* Cambia el color del texto del botón del acordeón */
+    background-color: rgb(219, 200, 237); /* Cambia el color de fondo del botón del acordeón */
+    width: 82%; 
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+}
+
+.accordion-header button:hover {
+    border: none; 
+
+}
+
+
+.accordion-body {
+    padding: 10px; /* Agrega un espacio interno dentro del cuerpo del panel del acordeón */
+    width: 82%; 
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border: none;
+}
+.accordion-item {
+    border: none !important; /* Quítale el borde al panel del acordeón */
+}
+

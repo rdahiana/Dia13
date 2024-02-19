@@ -1,0 +1,51 @@
+/* CSS */
+.titulos {
+    color:rgb(209, 180, 100); /* Cambia "blue" por el color que desees */
+}
+
+
+.bottom-border {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1.8px solid #ccc; /* Establece el color y el grosor del borde inferior */
+    width: 450px; /* Ancho de la caja de texto */
+    padding: 5px; /* Espacio interior alrededor del texto */
+    outline: none; /* Elimina el contorno al enfocar el elemento */
+}
+.btn-primary{
+    background-color: #B18F30; /* Cambia el color de fondo del botón */
+    border-color: #B18F30; /* Cambia el color del borde del botón */
+    color: #ffffff; /* Cambia el color del texto del botón */
+}
+
+
+.denro{
+    width: 800px;
+}
+
+.domnum {
+    width: 800px; /* Ancho de la caja de texto */
+    padding: 5px; /* Espacio interior alrededor del texto */
+    outline: none; /* Elimina el contorno al enfocar el elemento */
+}
+
+.form-check-input:focus{
+    box-shadow: none;
+    border: black 3px solid;
+}
+
+.form-check-input{
+    width: 40px;
+    height: 40px;
+    border: 2px solid gray;
+}
+.form-check-input:checked{
+    background-color: #B18F30;
+    text-decoration: none;
+}
+.modal-dialog-centered {
+    position: absolute;
+    top: 0%;
+    left: 40%;
+}
